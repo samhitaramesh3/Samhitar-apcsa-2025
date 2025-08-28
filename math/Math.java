@@ -3,9 +3,18 @@ class Math {
   public static void main(String[] args) {
 
     //Use the // to create single line comments to either add info or to take out code for debugging
-
+int a= 12;
+int b=8;
+int sum=a+b;
+int difference= a-b;
+int product =a*b;
+int quotient = a/b;
+int remainder =a%b;
+System.out.println("a= a" +a );
+System.out.println("b= "+b);
+System
     System.out.println("Hello world!");
-//kk
+//
     //We will be using System.out.println and System.out.print throughout the year. Try using both below to see what the difference is!
 
 
