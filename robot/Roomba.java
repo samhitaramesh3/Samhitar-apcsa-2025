@@ -12,11 +12,10 @@ public class Roomba implements Directions {
 		Roomba cleaner = new Roomba();
 		int totalBeepers = cleaner.cleanRoom(worldName, 7, 6);
 		System.out.println("Roomba cleaned up a total of " + totalBeepers + " beepers.");
-        Robot Rom = new Robot(3,3,South,50);
 	}
     
 	// declared here so it is visible in all the methods!
-	 private Robot roomba;
+	 private Robot Rom = new Robot(3,3,South,50);
 
 	// You will need to add many variables!!
 
