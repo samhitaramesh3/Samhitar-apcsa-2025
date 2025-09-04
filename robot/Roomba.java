@@ -12,11 +12,11 @@ public class Roomba implements Directions {
 		Roomba cleaner = new Roomba();
 		int totalBeepers = cleaner.cleanRoom(worldName, 7, 6);
 		System.out.println("Roomba cleaned up a total of " + totalBeepers + " beepers.");
-
+        Robot Rom = new Robot(3,3,South,50);
 	}
-
+    
 	// declared here so it is visible in all the methods!
-	private Robot roomba;
+	 private Robot roomba;
 
 	// You will need to add many variables!!
 
@@ -37,11 +37,11 @@ public class Roomba implements Directions {
 
 		// the line below causes a null pointer exception
 		// what is that and why are we getting it?
-		roomba.move();
-        public int cleanRoom(String worldName, int startX, int startY) {
-        World.readWorld(worldName);
-        World.setVisible(true);
-        
+		Rom.move();
+        Rom.putBeeper();
+        Rom.move();
+        Rom.turnLeft();
+        Rom.turnLeft();
 
 		int totalBeepers = 0; // Need to move this somewhere else.
         // This method should return the total number of beepers cleaned up.
