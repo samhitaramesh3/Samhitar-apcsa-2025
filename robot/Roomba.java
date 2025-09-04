@@ -38,7 +38,10 @@ public class Roomba implements Directions {
 		// the line below causes a null pointer exception
 		// what is that and why are we getting it?
 		roomba.move();
-
+        public int cleanRoom(String worldName, int startX, int startY) {
+        World.readWorld(worldName);
+        World.setVisible(true);
+        
 
 		int totalBeepers = 0; // Need to move this somewhere else.
         // This method should return the total number of beepers cleaned up.
