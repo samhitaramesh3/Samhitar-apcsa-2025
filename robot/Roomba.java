@@ -67,9 +67,13 @@ public class Roomba implements Directions {
 		Rom.pickBeeper();
 		Rom.turnLeft();
 		Rom.turnLeft();
-		Rom.turnLeft();
 		Rom.move();
-		
+		Rom.move();
+		Rom.pickBeeper();
+		Rom.move();
+		Rom.move();
+		Rom.move();
+		Rom.pickBeeper();
 
 		/** This section will have all the logic that takes the Robot to every location
 		 * and cleans up all piles of beepers. Think about ways you can break this
