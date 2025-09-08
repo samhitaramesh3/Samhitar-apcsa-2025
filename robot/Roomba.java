@@ -32,6 +32,7 @@ public class Roomba implements Directions {
 		Rom.move();
 		Rom.pickBeeper();
 		Rom.move();
+		Rom.pickBeeper();
 		Rom.turnLeft();
 		Rom.move();
 		Rom.turnLeft();
@@ -39,7 +40,36 @@ public class Roomba implements Directions {
 		Rom.turnLeft();
 		Rom.move();
 		Rom.move();
-		ROm.turnLeft();
+		Rom.pickBeeper();
+		Rom.turnLeft();
+		Rom.move();
+		Rom.pickBeeper();
+		Rom.turnLeft();
+		Rom.move();
+		Rom.move();
+		Rom.move();
+		Rom.move();
+		Rom.pickBeeper();
+		Rom.turnLeft();
+		Rom.turnLeft();
+		Rom.turnLeft();
+		Rom.move();
+		Rom.turnLeft();
+		Rom.turnLeft();
+		Rom.turnLeft();
+		Rom.move();
+		Rom.move();
+		Rom.pickBeeper();
+		Rom.turnLeft();
+		Rom.move();
+		Rom.turnLeft();
+		Rom.move();
+		Rom.pickBeeper();
+		Rom.turnLeft();
+		Rom.turnLeft();
+		Rom.turnLeft();
+		Rom.move();
+		
 
 		/** This section will have all the logic that takes the Robot to every location
 		 * and cleans up all piles of beepers. Think about ways you can break this
