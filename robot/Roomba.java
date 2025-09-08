@@ -15,7 +15,7 @@ public class Roomba implements Directions {
 	}
     
 	// declared here so it is visible in all the methods!
-	 private Robot Rom = new Robot(3,3,South,50);
+	 private Robot Rom = new Robot(7,6,South,50);
 
 	// You will need to add many variables!!
 
@@ -27,7 +27,19 @@ public class Roomba implements Directions {
 
 		World.readWorld(worldName);
 		World.setVisible(true);
-
+		Rom.turnLeft();
+		Rom.move();
+		Rom.move();
+		Rom.pickBeeper();
+		Rom.move();
+		Rom.turnLeft();
+		Rom.move();
+		Rom.turnLeft();
+		Rom.turnLeft();
+		Rom.turnLeft();
+		Rom.move();
+		Rom.move();
+		ROm.turnLeft();
 
 		/** This section will have all the logic that takes the Robot to every location
 		 * and cleans up all piles of beepers. Think about ways you can break this
@@ -36,11 +48,7 @@ public class Roomba implements Directions {
 
 		// the line below causes a null pointer exception
 		// what is that and why are we getting it?
-		Rom.move();
-        Rom.putBeeper();
-        Rom.move();
-        Rom.turnLeft();
-        Rom.turnLeft();
+		
 
 		int totalBeepers = 0; // Need to move this somewhere else.
         // This method should return the total number of beepers cleaned up.
