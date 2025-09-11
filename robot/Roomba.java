@@ -67,9 +67,8 @@ public class Roomba implements Directions {
 		Rom.pickBeeper();
 		Rom.turnLeft();
 		Rom.turnLeft();
+		Rom.turnLeft();
 		Rom.move();
-		Rom.move();
-		Rom.pickBeeper();
 		Rom.move();
 		Rom.move();
 		Rom.move();
