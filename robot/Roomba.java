@@ -15,7 +15,7 @@ public class Roomba implements Directions {
 	}
     
 	// declared here so it is visible in all the methods!
-	 private Robot Rom = new Robot(7,6,South,50);
+	 private Robot roomba = new Robot(7,6,South,50);
 
 	// You will need to add many variables!!
 
@@ -27,44 +27,19 @@ public class Roomba implements Directions {
 
 		World.readWorld(worldName);
 		World.setVisible(true);
+	while (roomba.frontIsClear()){
+		while(roomba.nextToABeeper()){
+			roomba.pickBeeper();
+
+		roomba.move()
+		}
+		
+	}
 
 
-		while (true) {
-    // Pick up all beepers on current square
-    while (Rom.nextToABeeper()) {
-        Rom.pickBeeper();
-    }
-
-    // Move forward if possible
-    if (Rom.frontIsClear()) {
-        Rom.move();
-    } 
-    // At end of row, handle zig-zag
-    else if (Rom.facingEast()) {
-        // turn right (3 lefts) to face North
-        Rom.turnLeft();
-        Rom.turnLeft();
-        Rom.turnLeft();
-        if (Rom.frontIsClear()) Rom.move();
-        else break; // blocked, finished
-        // turn right (3 lefts) to face West
-        Rom.turnLeft();
-        Rom.turnLeft();
-        Rom.turnLeft();
-    } 
-    else if (Rom.facingWest()) {
-        // turn left to face North
-        Rom.turnLeft();
-        if (Rom.frontIsClear()) Rom.move();
-        else break; // blocked, finished
-        // turn left to face East
-        Rom.turnLeft();
-    } 
-    else {
-        break;
 
     }
-}
+
 
 		Rom.turnLeft();
 		Rom.move();
