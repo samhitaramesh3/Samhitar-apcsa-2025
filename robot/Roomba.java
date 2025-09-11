@@ -27,6 +27,11 @@ public class Roomba implements Directions {
 
 		World.readWorld(worldName);
 		World.setVisible(true);
+		while (true) {
+			while (Rom.nextToABeeper()) {
+        Rom.pickBeeper();
+    }
+	
 		Rom.turnLeft();
 		Rom.move();
 		Rom.move();
@@ -69,6 +74,16 @@ public class Roomba implements Directions {
 		Rom.turnLeft();
 		Rom.turnLeft();
 		Rom.move();
+		Rom.move();
+		Rom.move();
+		Rom.move();
+		Rom.pickBeeper();
+		Rom.moveLeft();
+		Rom.moveLeft();
+		Rom.moveLeft();
+		Rom.move();
+		Rom.move();
+		Rom.pickBeeper();
 		Rom.move();
 		Rom.move();
 		Rom.move();
