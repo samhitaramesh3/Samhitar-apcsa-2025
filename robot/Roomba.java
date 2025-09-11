@@ -41,7 +41,13 @@ public class Roomba implements Directions {
             Rom.turnLeft();       // face West
             else break;  
 			 } else if (Rom.facingWest()) {
-				
+				Rom.turnRight(); 
+				 if (Rom.frontIsClear()) Rom.move();
+            Rom.turnRight();      // face East
+            else break;            // blocked, end
+        } else {
+            break;
+			
 		Rom.turnLeft();
 		Rom.move();
 		Rom.move();
