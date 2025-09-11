@@ -15,7 +15,7 @@ public class Roomba implements Directions {
 	}
     
 	// declared here so it is visible in all the methods!
-	 private Robot roomba = new Robot(7,6,South,50);
+	 private Robot roomba;
 
 	// You will need to add many variables!!
 
@@ -24,79 +24,25 @@ public class Roomba implements Directions {
 
 		// A new Robot should be constructed and assigned to the global (instance) variable named roomba that is declared above.
         // Make sure it starts at startX and startY location.
-
+		int totalBeepers = 0; 
+		roomba = new Robot(7,6,East,0);
 		World.readWorld(worldName);
 		World.setVisible(true);
 	while (roomba.frontIsClear()){
 		while(roomba.nextToABeeper()){
 			roomba.pickBeeper();
-
-		roomba.move()
+			totalBeepers++;
+		roomba.move();
 		}
 		
 	}
 
 
 
-    }
+    
 
 
-		Rom.turnLeft();
-		Rom.move();
-		Rom.move();
-		Rom.pickBeeper();
-		Rom.move();
-		Rom.pickBeeper();
-		Rom.turnLeft();
-		Rom.move();
-		Rom.turnLeft();
-		Rom.turnLeft();
-		Rom.turnLeft();
-		Rom.move();
-		Rom.move();
-		Rom.pickBeeper();
-		Rom.turnLeft();
-		Rom.move();
-		Rom.pickBeeper();
-		Rom.turnLeft();
-		Rom.move();
-		Rom.move();
-		Rom.move();
-		Rom.move();
-		Rom.pickBeeper();
-		Rom.turnLeft();
-		Rom.turnLeft();
-		Rom.turnLeft();
-		Rom.move();
-		Rom.turnLeft();
-		Rom.turnLeft();
-		Rom.turnLeft();
-		Rom.move();
-		Rom.move();
-		Rom.pickBeeper();
-		Rom.turnLeft();
-		Rom.move();
-		Rom.turnLeft();
-		Rom.move();
-		Rom.pickBeeper();
-		Rom.turnLeft();
-		Rom.turnLeft();
-		Rom.turnLeft();
-		Rom.move();
-		Rom.move();
-		Rom.move();
-		Rom.move();
-		Rom.pickBeeper();
-		Rom.turnLeft();
-		Rom.turnLeft();
-		Rom.turnLeft();
-		Rom.move();
-		Rom.move();
-		Rom.pickBeeper();
-		Rom.move();
-		Rom.move();
-		Rom.move();
-		Rom.pickBeeper();
+		
 
 		/** This section will have all the logic that takes the Robot to every location
 		 * and cleans up all piles of beepers. Think about ways you can break this
@@ -107,7 +53,7 @@ public class Roomba implements Directions {
 		// what is that and why are we getting it?
 		
 
-		int totalBeepers = 0; // Need to move this somewhere else.
+		// Need to move this somewhere else.
         // This method should return the total number of beepers cleaned up.
 		return totalBeepers;
 	}
