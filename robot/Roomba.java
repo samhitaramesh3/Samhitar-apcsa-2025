@@ -29,7 +29,51 @@ public class Roomba implements Directions {
 		World.setVisible(true);
 		World.setDelay(5);
 
-		
+		while(!Rom.facingWest()){
+			Rom.turnLeft();
+		}
+
+		while(Rom.frontIsClear()){
+			Rom.move();
+		}
+
+		for(int x = 0; x < 3; x++){
+			Rom.turnLeft();
+		}
+
+		while(Rom.frontIsClear()){
+			Rom.move();
+		}
+
+		for(int x = 0; x < 3; x++){
+			Rom.turnLeft();
+		}
+
+		while(true){
+			while(Rom.frontIsClear()){
+				while(Rom.nextToABeeper()){Rom.pickBeeper();}
+				Rom.move();
+			}
+			if(Rom.facingEast()){
+				for(int x = 0; x < 3; x++){
+					Rom.turnLeft();
+				}
+			}
+			else if(Rom.facingWest()){
+				Rom.turnLeft();
+			}
+			while(Rom.nextToABeeper()){Rom.pickBeeper();}
+			if(Rom.frontIsClear()){ 
+				Rom.move();
+			} else {
+				break;
+			}
+			Rom.turnLeft();
+			if(!Rom.frontIsClear()){
+				Rom.turnLeft();
+				Rom.turnLeft();
+			}
+		}
 
 		/** This section will have all the logic that takes the Robot to every location
 		 * and cleans up all piles of beepers. Think about ways you can break this
@@ -42,37 +86,6 @@ public class Roomba implements Directions {
 
 		int totalBeepers = 0; // Need to move this somewhere else.
         // This method should return the total number of beepers cleaned up.
-		Rom.turnLeft();
-		for (int i = 0; i < 2; i++) Rom.move();
-		while (Rom.nextToABeeper()) {
-			Rom.pickBeeper();
-			totalBeepers++;
-		}
-		Rom.move();
-		while (Rom.nextToABeeper()) {
-			Rom.pickBeeper();
-			totalBeepers++;
-		}
-		Rom.turnLeft();
-		Rom.move();
-		for (int i = 0; i < 3; i++) Rom.turnLeft();
-		for (int i = 0; i < 2; i++) Rom.move();
-		while (Rom.nextToABeeper()) {
-			Rom.pickBeeper();
-			totalBeepers++;
-		}
-		Rom.turnLeft();
-		Rom.move();
-		while (Rom.nextToABeeper()) {
-			Rom.pickBeeper();
-			totalBeepers++;
-		}
-		Rom.turnLeft();
-		for (int i = 0; i < 4; i++) Rom.move();
-		while (Rom.nextToABeeper()) {
-			Rom.pickBeeper();
-			totalBeepers++;
-		}
 		return totalBeepers;
 	}
 }
