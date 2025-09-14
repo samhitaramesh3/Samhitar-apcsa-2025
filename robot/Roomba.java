@@ -27,77 +27,9 @@ public class Roomba implements Directions {
 
 		World.readWorld(worldName);
 		World.setVisible(true);
-		while (true) {
-			while (Rom.nextToABeeper()) {
-        Rom.pickBeeper();
-    }
-	if (Rom.frontIsClear()) {
-        Rom.move();
-    } else {
+		World.setDelay(5);
 
-		if (Rom.facingEast()) {
-            Rom.turnLeft();       // turn North
-            if (Rom.frontIsClear()) Rom.move();
-            Rom.turnLeft();       // face West
-            else break;  
-			 } else if (Rom.facingWest()) {
-				
-		Rom.turnLeft();
-		Rom.move();
-		Rom.move();
-		Rom.pickBeeper();
-		Rom.move();
-		Rom.pickBeeper();
-		Rom.turnLeft();
-		Rom.move();
-		Rom.turnLeft();
-		Rom.turnLeft();
-		Rom.turnLeft();
-		Rom.move();
-		Rom.move();
-		Rom.pickBeeper();
-		Rom.turnLeft();
-		Rom.move();
-		Rom.pickBeeper();
-		Rom.turnLeft();
-		Rom.move();
-		Rom.move();
-		Rom.move();
-		Rom.move();
-		Rom.pickBeeper();
-		Rom.turnLeft();
-		Rom.turnLeft();
-		Rom.turnLeft();
-		Rom.move();
-		Rom.turnLeft();
-		Rom.turnLeft();
-		Rom.turnLeft();
-		Rom.move();
-		Rom.move();
-		Rom.pickBeeper();
-		Rom.turnLeft();
-		Rom.move();
-		Rom.turnLeft();
-		Rom.move();
-		Rom.pickBeeper();
-		Rom.turnLeft();
-		Rom.turnLeft();
-		Rom.turnLeft();
-		Rom.move();
-		Rom.move();
-		Rom.move();
-		Rom.move();
-		Rom.pickBeeper();
-		Rom.moveLeft();
-		Rom.moveLeft();
-		Rom.moveLeft();
-		Rom.move();
-		Rom.move();
-		Rom.pickBeeper();
-		Rom.move();
-		Rom.move();
-		Rom.move();
-		Rom.pickBeeper();
+		
 
 		/** This section will have all the logic that takes the Robot to every location
 		 * and cleans up all piles of beepers. Think about ways you can break this
@@ -110,6 +42,12 @@ public class Roomba implements Directions {
 
 		int totalBeepers = 0; // Need to move this somewhere else.
         // This method should return the total number of beepers cleaned up.
+		Rom.turnLeft();
+		for (int i = 0; i < 2; i++) Rom.move();
+		while (Rom.nextToABeeper()) {
+			Rom.pickBeeper();
+			totalBeepers++;
+		}
 		return totalBeepers;
 	}
 }
