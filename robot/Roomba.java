@@ -57,11 +57,14 @@ public class Roomba implements Directions {
 		while(true){
 			while(Rom.frontIsClear()){
 				boolean pileFound = false;
+				int pileSize = 0;
 				while(Rom.nextToABeeper()){
 					Rom.pickBeeper();totalBeepers++;
+					pileSize++;
 					pileFound = true;
 				}
 				if (pileFound) numberOfPiles++;
+				if (pileSize > largestPile) largestPile = pileSize;
 				Rom.move();
 				area++;
 			}
@@ -73,12 +76,15 @@ public class Roomba implements Directions {
 			else if(Rom.facingWest()){
 				Rom.turnLeft();
 			}
+			int pileSize = 0;
 			boolean pileFound = false;
 			while(Rom.nextToABeeper()){
 				Rom.pickBeeper();
 				totalBeepers++;
 				pileFound = true;
+				pileSize++;
 			}
+			if (pileSize > largestPile) largestPile = pileSize;
 			if (pileFound) numberOfPiles++;
 			if(Rom.frontIsClear()){ 
 				Rom.move();
@@ -106,6 +112,7 @@ public class Roomba implements Directions {
         // This method should return the total number of beepers cleaned up.
 		System.out.println("AREA: " + area);
 		System.out.println("NUMBER OF PILES: " + numberOfPiles);
+		System.out.println("LARGEST PILE SIZE: " + largestPile);
 		return totalBeepers;
 	}
 }
