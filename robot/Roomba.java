@@ -67,6 +67,12 @@ public class Roomba implements Directions {
 			Rom.pickBeeper();
 			totalBeepers++;
 		}
+		Rom.turnLeft();
+		for (int i = 0; i < 4; i++) Rom.move();
+		while (Rom.nextToABeeper()) {
+			Rom.pickBeeper();
+			totalBeepers++;
+		}
 		return totalBeepers;
 	}
 }
