@@ -33,6 +33,8 @@ public class Roomba implements Directions {
 		int totalBeepers = 0;
 		int numberOfPiles = 0;
 		int largestPile = 0;
+		int largestPileX = 0;
+		int largestPileY = 0;
 
 		while(!Rom.facingWest()){
 			Rom.turnLeft();
@@ -64,7 +66,11 @@ public class Roomba implements Directions {
 					pileFound = true;
 				}
 				if (pileFound) numberOfPiles++;
-				if (pileSize > largestPile) largestPile = pileSize;
+				if (pileSize > largestPile){
+					largestPile = pileSize;
+					largestPileX = Rom.street();
+					largestPileY = Rom.avenue();
+				}
 				Rom.move();
 				area++;
 			}
@@ -84,7 +90,11 @@ public class Roomba implements Directions {
 				pileFound = true;
 				pileSize++;
 			}
-			if (pileSize > largestPile) largestPile = pileSize;
+			if (pileSize > largestPile){
+				largestPile = pileSize;
+				largestPileX = Rom.street();
+				largestPileY = Rom.avenue();
+			}
 			if (pileFound) numberOfPiles++;
 			if(Rom.frontIsClear()){ 
 				Rom.move();
@@ -113,6 +123,7 @@ public class Roomba implements Directions {
 		System.out.println("AREA: " + area);
 		System.out.println("NUMBER OF PILES: " + numberOfPiles);
 		System.out.println("LARGEST PILE SIZE: " + largestPile);
+		System.out.println("LARGEST PILE LOCATION: " + largestPileX + "," + largestPileY);
 		return totalBeepers;
 	}
 }
