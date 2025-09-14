@@ -28,14 +28,14 @@ public class Roomba implements Directions {
 		roomba = new Robot(7,6,East,0);
 		World.readWorld(worldName);
 		World.setVisible(true);
-	while (roomba.frontIsClear()){
-		while(roomba.nextToABeeper()){
-			roomba.pickBeeper();
-			totalBeepers++;
-		roomba.move();
+		while (roomba.frontIsClear()){
+			while(roomba.nextToABeeper()){
+				roomba.pickBeeper();
+				totalBeepers++;
+			roomba.move();
 		}
-		
 	}
+}
 
 
 
