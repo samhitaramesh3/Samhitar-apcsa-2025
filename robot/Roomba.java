@@ -7,7 +7,7 @@ public class Roomba implements Directions {
 	// Main method to make this self-contained
 	public static void main(String[] args) {
 		// LEAVE THIS ALONE!!!!!!
-		String worldName = "robot/basicRoom.wld";
+		String worldName = "robot/finalTestWorld2024.wld";
 
 		Roomba cleaner = new Roomba();
 		int totalBeepers = cleaner.cleanRoom(worldName, 7, 6);
@@ -28,14 +28,14 @@ public class Roomba implements Directions {
 		World.readWorld(worldName);
 		World.setVisible(true);
 		World.setDelay(1);
-
+		// Defined variables
 		int area = 1;
 		int totalBeepers = 0;
 		int numberOfPiles = 0;
 		int largestPile = 0;
 		int largestPileX = 0;
 		int largestPileY = 0;
-
+		// Robot Direction
 		while(!Rom.facingWest()){
 			Rom.turnLeft();
 		}
@@ -55,7 +55,7 @@ public class Roomba implements Directions {
 		for(int x = 0; x < 3; x++){
 			Rom.turnLeft();
 		}
-
+		// Robot Movements
 		while(true){
 			while(Rom.frontIsClear()){
 				boolean pileFound = false;
@@ -65,6 +65,7 @@ public class Roomba implements Directions {
 					pileSize++;
 					pileFound = true;
 				}
+				// Figures out what largest pile is
 				if (pileFound) numberOfPiles++;
 				if (pileSize > largestPile){
 					largestPile = pileSize;
@@ -90,6 +91,7 @@ public class Roomba implements Directions {
 				pileFound = true;
 				pileSize++;
 			}
+			// Find largest pile coordinate
 			if (pileSize > largestPile){
 				largestPile = pileSize;
 				largestPileX = Rom.street();
