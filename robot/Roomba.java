@@ -15,7 +15,7 @@ public class Roomba implements Directions {
 	}
     
 	// declared here so it is visible in all the methods!
-	 private Robot Rom = new Robot(7,6,South,50);
+	 private Robot Rom = new Robot(26,101,South,50);
 
 	// You will need to add many variables!!
 
@@ -27,14 +27,17 @@ public class Roomba implements Directions {
 
 		World.readWorld(worldName);
 		World.setVisible(true);
-		World.setDelay(1);
+		World.setDelay(0);
 		// Defined variables
-		int area = 1;
+		double area = 1;
 		int totalBeepers = 0;
-		int numberOfPiles = 0;
+		double numberOfPiles = 0;
 		int largestPile = 0;
 		int largestPileX = 0;
 		int largestPileY = 0;
+		int avgpileSize =0;
+		
+
 		// Robot Direction
 		while(!Rom.facingWest()){
 			Rom.turnLeft();
@@ -126,6 +129,8 @@ public class Roomba implements Directions {
 		System.out.println("NUMBER OF PILES: " + numberOfPiles);
 		System.out.println("LARGEST PILE SIZE: " + largestPile);
 		System.out.println("LARGEST PILE LOCATION: " + largestPileX + "," + largestPileY);
+		System.out.println("Percent dirty:" + (numberOfPiles/area));
+		System.out.println("Average Pile Size:" + (totalBeepers/numberOfPiles));
 		return totalBeepers;
 	}
 }
