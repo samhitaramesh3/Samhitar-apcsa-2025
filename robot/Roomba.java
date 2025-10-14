@@ -35,7 +35,7 @@ public class Roomba implements Directions {
 		int largestPile = 0;
 		int largestPileX = 0;
 		int largestPileY = 0;
-		int avgpileSize =0;
+		
 		
 
 		// Robot Direction
