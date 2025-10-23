@@ -4,7 +4,9 @@ public class PigLatinTranslator {
     public static Book translate(Book input) {
         Book translatedBook = new Book();
 
-        // TODO: Add code here to populate translatedBook with a translation of the
+        for(String line: input.getLines()) {
+            translatedBook
+        }
         // input book.
         // Curent do-nothing code will return an empty book.
         // Your code will need to call translate(String input) many times.
