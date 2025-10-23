@@ -5,7 +5,7 @@ public class PigLatinTranslator {
         Book translatedBook = new Book();
 
         for(String line: input.getLines()) {
-            translatedBook
+            translatedBook.addLine(translate(line));
         }
         // input book.
         // Curent do-nothing code will return an empty book.
