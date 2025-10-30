@@ -12,6 +12,7 @@ public class PigLatinTranslator {
         // Your code will need to call translate(String input) many times.
 
         return translatedBook;
+        
     }
 
     public static String translate(String input) {
