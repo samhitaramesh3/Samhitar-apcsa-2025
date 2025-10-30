@@ -1,51 +1,53 @@
 package piglatin;
 
+import java.util.Scanner;
+
 public class PigLatinTranslator {
+
     public static Book translate(Book input) {
         Book translatedBook = new Book();
 
-        for(String line: input.getLines()) {
-            translatedBook.addLine(translate(line));
+        for (int i=0;i<input.getLineCount();i++) {
+            translatedBook.appendLine(translate(input.getLine(i)));
         }
-        // input book.
-        // Curent do-nothing code will return an empty book.
-        // Your code will need to call translate(String input) many times.
 
         return translatedBook;
-        
     }
 
     public static String translate(String input) {
-        System.out.println("  -> translate('" + input + "')");
+        StringBuilder result = new StringBuilder();
+        Scanner sc = new Scanner(input);
 
-        String result = "";
+        while (sc.hasNext()) {
+            result.append(translateWord(sc.next()));
+            if (sc.hasNext()) result.append(" ");
+        }
 
-        // TODO: translate a string input, store in result.
-        // The input to this function could be any English string.
-        // It may be made up of many words.
-        // This method must call translateWord once for each word in the string.
-        result = translateWord(input);
-
-        return result;
+        sc.close();
+        return result.toString();
     }
 
     private static String translateWord(String input) {
-        System.out.println("  -> translateWord('" + input + "')");
+        if (input.length() == 0) return "";
 
-        String result = "";
+        String vowels = "aeiouAEIOU";
 
-       if(input.startsWith("a")|| input.startsWith("e")|| input.startsWith("i")|| input.startsWith("o")||input.startsWith("u")||input.startsWith("y")){
-        return(input+(a))
-       }
-        // Start here first!
-        // This is the first place to work.
-        result = input; // delete this line
+        if (vowels.indexOf(input.charAt(0)) != -1) {
+            return input + "ay";
+        }
 
-        return result;
+        int firstVowel = -1;
+        for (int i = 0; i < input.length(); i++) {
+            if (vowels.indexOf(input.charAt(i)) != -1) {
+                firstVowel = i;
+                break;
+            }
+        }
+
+        if (firstVowel == -1) return input + "ay";
+        
+        String start = input.substring(0, firstVowel);
+        String end = input.substring(firstVowel);
+        return end + start + "ay";
     }
-
-    // Add additonal private methods here.
-    // For example, I had one like this:
-    // private static String capitalizeFirstLetter(String input)
-
 }
