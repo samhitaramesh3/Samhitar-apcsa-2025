@@ -17,10 +17,26 @@ public class PigLatinTranslator {
     public static String translate(String input) {
         StringBuilder result = new StringBuilder();
         Scanner sc = new Scanner(input);
-
+        
         while (sc.hasNext()) {
-            result.append(translateWord(sc.next()));
+            String next=sc.next();
+            boolean onlypunctuation=true;
+            for (char a : next.toCharArray())
+            {
+                if (Character.isLetter(a))
+                {
+                    onlypunctuation=false;
+                    break;
+                }
+            }
+            if (onlypunctuation) {
+                result.append(next);
+            }
+            else {
+                result.append(translateWord(next));
+            }
             if (sc.hasNext()) result.append(" ");
+                
         }
 
         sc.close();
@@ -28,12 +44,15 @@ public class PigLatinTranslator {
     }
 
     private static String translateWord(String input) {
+        String thirdPart="ay";
         if (input.length() == 0) return "";
-
+        if (input.charAt(input.length()-1)=='.'||input.charAt(input.length()-1)==','||input.charAt(input.length()-1)=='!'||input.charAt(input.length()-1)=='?'||input.charAt(input.length()-1)==';'||input.charAt(input.length()-1)==':'||input.charAt(input.length()-1)=='\'') {
+            thirdPart+=input.substring(input.length()-1);
+            input=input.substring(0, input.length()-1);
+        }
         String vowels = "aeiouAEIOU";
-
         if (vowels.indexOf(input.charAt(0)) != -1) {
-            return input + "ay";
+            return input + thirdPart;
         }
 
         int firstVowel = -1;
@@ -43,11 +62,24 @@ public class PigLatinTranslator {
                 break;
             }
         }
-
-        if (firstVowel == -1) return input + "ay";
-        
+        boolean firstlettercapped=false;
+        if (Character.isUpperCase(input.charAt(0)))
+        {
+            //the first letter is capped
+            firstlettercapped=true;
+        }
+        if (firstVowel == -1) return input + thirdPart;
         String start = input.substring(0, firstVowel);
         String end = input.substring(firstVowel);
-        return end + start + "ay";
+        if (firstlettercapped)
+        {
+            start=start.substring(0,1).toLowerCase()+start.substring(1);
+        }
+        String result=end + start +thirdPart;
+        if (firstlettercapped)
+        {
+            result=result.substring(0,1).toUpperCase()+result.substring(1);
+        }
+        return result;
     }
 }
