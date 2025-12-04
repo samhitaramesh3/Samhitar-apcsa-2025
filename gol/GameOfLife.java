@@ -19,6 +19,7 @@ public class GameOfLife implements Board {
             }
         }
     }
+        first commit
 
     // Run the simulation for a number of turns
     public void run(int turns) {
