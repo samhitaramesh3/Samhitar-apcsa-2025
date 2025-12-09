@@ -10,7 +10,7 @@ public class GameOfLife implements Board {
     public GameOfLife(int x, int y)
     {
         // Construct a 2d array of the given x and y size.
-
+        board=new int[x][y];
     // Set values on the board
     public void set(int x, int y, int[][] data) {
         for (int i = 0; i < data.length; i++) {
