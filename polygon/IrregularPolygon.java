@@ -13,7 +13,7 @@ public class IrregularPolygon {
     // public methods
     public void add(Point2D.Double aPoint)
     {
-        // TODO: Add a point to the IrregularPolygon.
+        // TODO: Add a point to the IrregularPolygon
     }
 
     public double perimeter() {
