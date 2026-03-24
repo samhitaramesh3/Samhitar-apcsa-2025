@@ -12,7 +12,7 @@ public class IntegerStack {
         stack = new int[depth];
     }
 
-    // Get the value of the top element without removal
+    // Get the value of the top element without removal.
     public int peek()
     {
         if (depth > 0)
