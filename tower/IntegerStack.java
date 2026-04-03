@@ -2,7 +2,7 @@ package tower;
 
 public class IntegerStack {
 
-    private int[] stack;
+    private int[] stack; 
     private int depth;
 
     // Construct a stack of given depth
